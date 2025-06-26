@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing URL Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>🔍 Phishing URL Detection</h1>
+  </header>
+
+  <main>
+    <form action="/" method="post">
+      <div class="form-group">
+        <label for="url">Enter a URL to check:</label>
+        <input type="text" id="url" name="url" placeholder="https://example.com" required />
+      </div>
+      <button type="submit">Check URL</button>
+    </form>
+
+    <div class="result" id="prediction">
+      <!-- Prediction result will appear here -->
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Elie Jordan
+  </footer>
+
+  <script>
+    let x = '{{xx}}';
+    let num = x * 100;
+    if (x < 0.5) {
+      num = 100 - num;
+    }
+    let txtx = num.toFixed(2);
+    let label = '';
+    if (x >= 0.5 && x <= 1) {
+      label = `✅ Website is ${txtx}% safe to use.`;
+    } else if (x >= 0 && x < 0.5) {
+      label = `⚠️ Website is ${txtx}% unsafe to use.`;
+    }
+    document.getElementById("prediction").innerText = label;
+  </script>
+
+</body>
+</html>
